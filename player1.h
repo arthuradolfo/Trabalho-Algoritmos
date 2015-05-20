@@ -5,4 +5,5 @@ typedef struct player1 {
     int dirX;
     int velX;
     int velY;
+    char raquete[30];
 } PLAYER1;
