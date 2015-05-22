@@ -1,3 +1,4 @@
+#include "mapa.h"
 #include "bola.h"
 #include "player1.h"
 #include "player2.h"

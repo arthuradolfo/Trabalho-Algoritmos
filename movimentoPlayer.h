@@ -1,7 +1,7 @@
-int movimentoPlayer1(PLAYER1 *player1);
-int movimentoPlayer2(PLAYER2 *player2, BOLA *bola);
+int movimentoPlayer1(PLAYER1 *player1, MAPA *mapa);
+int movimentoPlayer2(PLAYER2 *player2, BOLA *bola, MAPA *mapa);
 
-int movimentoPlayer1(PLAYER1 *player1) {
+int movimentoPlayer1(PLAYER1 *player1, MAPA *mapa) {
         int i;
         char player[player1->tamanho+1];
         //Player 1
@@ -19,10 +19,10 @@ int movimentoPlayer1(PLAYER1 *player1) {
                 }
                 player1->velX = -1;
         }
-        if(GetAsyncKeyState(VK_RIGHT) && player1->posXPlayer1 < WIDTH-(player1->tamanho+1)) {
+        if(GetAsyncKeyState(VK_RIGHT) && player1->posXPlayer1 < mapa->colunas-(player1->tamanho+1)) {
                 player1->posXPlayer1++;
                 for(i = 1; i < player1->dirX; i++) {
-                    if(player1->posXPlayer1 < WIDTH-(player1->tamanho+1)) {
+                    if(player1->posXPlayer1 < mapa->colunas-(player1->tamanho+1)) {
                         player1->posXPlayer1++;
                     }
                 }
@@ -35,7 +35,7 @@ int movimentoPlayer1(PLAYER1 *player1) {
         puts(player);
 }
 
-int movimentoPlayer2(PLAYER2 *player2, BOLA *bola) {
+int movimentoPlayer2(PLAYER2 *player2, BOLA *bola, MAPA *mapa) {
         int i;
         char player[player2->tamanho+1];
         if(player2->multiplayer == 1) {
@@ -54,10 +54,10 @@ int movimentoPlayer2(PLAYER2 *player2, BOLA *bola) {
                 }
                 player2->velX = -1;
             }
-            if(GetAsyncKeyState(0x44) && player2->posXPlayer2 < WIDTH-(player2->tamanho+1)) {
+            if(GetAsyncKeyState(0x44) && player2->posXPlayer2 < mapa->colunas-(player2->tamanho+1)) {
                 player2->posXPlayer2++;
                 for(i = 1; i < player2->dirX; i++) {
-                    if(player2->posXPlayer2 < WIDTH-(player2->tamanho+1)) {
+                    if(player2->posXPlayer2 < mapa->colunas-(player2->tamanho+1)) {
                         player2->posXPlayer2++;
                     }
                 }
@@ -85,10 +85,10 @@ int movimentoPlayer2(PLAYER2 *player2, BOLA *bola) {
                 }
                 player2->velX = -1;
             }
-            if(player2->posXPlayer2+5 < bola->posX && player2->posXPlayer2 < WIDTH-(player2->tamanho+1)) {
+            if(player2->posXPlayer2+5 < bola->posX && player2->posXPlayer2 < mapa->colunas-(player2->tamanho+1)) {
                 player2->posXPlayer2++;
                 for(i = 1; i < player2->dirX; i++) {
-                    if(player2->posXPlayer2 < WIDTH-(player2->tamanho+1)) {
+                    if(player2->posXPlayer2 < mapa->colunas-(player2->tamanho+1)) {
                         player2->posXPlayer2++;
                     }
                 }

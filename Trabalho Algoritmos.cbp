@@ -35,6 +35,7 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="mapa.h" />
+		<Unit filename="menu.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

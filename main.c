@@ -10,6 +10,7 @@
 
 #include "animacoes.h"
 #include "movimentos.h"
+#include "menu.h"
 
 int menu();
 void onePlayer(int dificuldade);
@@ -36,53 +37,6 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
-int menu () {
-    int i, j, posX = 50, posY = 13;
-        char menuFundo[8][80] = {"                                   MENU                                ",
-                                  "                      ________________________________                 ",
-                                  "                     |                                |                ",
-                                  "                     |   1 player:                    |                ",
-                                  "                     |   2 player:                    |                ",
-                                  "                     |   Criar mapa:                  |                ",
-                                  "                     |   Modo Extreme:                |                ",
-                                  "                     |________________________________|                "
-                            };
-    setCursor(0, 0);
-    desenhaLogo();
-    system("color ff");
-    for (i = 0; i < 5; i++) {
-        printf("\n");
-        Sleep(150);
-    }
-    for (i = 0; i < 8; i++) {
-        printf("%s\n", menuFundo[i]);
-        Sleep(150);
-    }
-    for (i = 0; i < 5; i++) {
-        printf("\n");
-        Sleep(150);
-    }
-    while(!GetAsyncKeyState(VK_RETURN)) {
-        setCursor(posX, posY);
-        printf("<-");
-        if(GetAsyncKeyState(VK_DOWN) && posY < 16) {
-            setCursor(posX, posY);
-            printf("  ");
-            posY++;
-            Sleep(100);
-        }
-        if (GetAsyncKeyState(VK_UP) && posY > 13) {
-            setCursor(posX, posY);
-            printf("  ");
-            posY--;
-            Sleep(100);
-
-        }
-        Sleep(1000/30);
-    }
-    return posY-12;
-}
-
 void setCursor(int x, int y) {
     COORD coordinate;
     coordinate.X = x;
@@ -92,18 +46,21 @@ void setCursor(int x, int y) {
 }
 
 void onePlayer(int dificuldade) {
-
-    BOLA bola = {WIDTH/2, HEIGHT-3, 1, -dificuldade};
-    PLAYER1 player1 = {WIDTH/2, HEIGHT-2, 10, 4, 0, 0, "=============================="};
-    PLAYER2 player2 = {WIDTH/2, 1, 10, 1, 0, 0, 0, "=============================="};
+    MAPA mapa = {25, 80 , 186, {0}};
+    BOLA bola = {mapa.colunas/2, mapa.linhas-3, 2, -dificuldade};
+    PLAYER1 player1 = {mapa.colunas/2, mapa.linhas-2, 10, 4, 0, 0, {219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219}};
+    PLAYER2 player2 = {mapa.colunas/2, 1, 10, 1, 0, 0, 0, {219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219}};
     int i, j, ponto = 0, pontuacaoPlayer2 = 0, pontuacaoPlayer1 = 0;
     system("cls");
     printf("SCORE: %d________________________________________________________________________", pontuacaoPlayer2);
-    for(i=1; i<HEIGHT-1; i++){
-        for(j=0; j<WIDTH; j++){
+    for(i=0; i<mapa.linhas-2; i++){
+        for(j=0; j<mapa.colunas; j++){
             //if(i == 0 || i == HEIGHT) printf("X");
-            if(j == 0 || j == WIDTH-1) printf("X");
+            if(j == 0 || j == mapa.colunas-1) printf("%c", mapa.borda);
             else printf (" ");
+        }
+        if(mapa.colunas < 80) {
+            printf("\n");
         }
     }
     printf("SCORE: %d________________________________________________________________________", pontuacaoPlayer1);
@@ -112,22 +69,21 @@ void onePlayer(int dificuldade) {
 
     while(!GetAsyncKeyState(VK_ESCAPE)) // enquanto a tecla ESC nao for pressionada
     {
-        movimentoPlayer1(&player1);
-        movimentoPlayer2(&player2, &bola);
-        ponto = movimentoBola(&bola, &player1, &player2);
+        movimentoPlayer1(&player1, &mapa);
+        movimentoPlayer2(&player2, &bola, &mapa);
+        ponto = movimentoBola(&bola, &player1, &player2, &mapa);
         player1.velX = 0;
         player2.velX = 0;
         if (ponto == 1) {
             setCursor(bola.posX, bola.posY);
             printf("_");
             bola.posX = player2.posXPlayer2+(player2.tamanho/2);
-            bola.posY = player2.posYPlayer2;
-            bola.dirX = 1;
+            bola.posY = player2.posYPlayer2+1;
             bola.dirY = dificuldade;
             pontuacaoPlayer1++;
             setCursor(0, 0);
             printf("SCORE: %d________________________________________________________________________", pontuacaoPlayer2);
-            setCursor(0, HEIGHT-1);
+            setCursor(0, mapa.linhas-1);
             printf("SCORE: %d________________________________________________________________________", pontuacaoPlayer1);
             setCursor(0, 0);
             Sleep(1000);
@@ -136,13 +92,12 @@ void onePlayer(int dificuldade) {
             setCursor(bola.posX, bola.posY);
             printf("_");
             bola.posX = player1.posXPlayer1+(player1.tamanho/2);
-            bola.posY = player1.posYPlayer1;
-            bola.dirX = 1;
+            bola.posY = player1.posYPlayer1-1;
             bola.dirY = -dificuldade;
             pontuacaoPlayer2++;
             setCursor(0, 0);
             printf("SCORE: %d________________________________________________________________________", pontuacaoPlayer2);
-            setCursor(0, HEIGHT-1);
+            setCursor(0, mapa.linhas-1);
             printf("SCORE: %d________________________________________________________________________", pontuacaoPlayer1);
             setCursor(0, 0);
             Sleep(1000);
@@ -153,16 +108,17 @@ void onePlayer(int dificuldade) {
 }
 
 void twoPlayer(int dificuldade) {
-    BOLA bola = {WIDTH/2, HEIGHT-3, 1, -dificuldade};
-    PLAYER1 player1 = {WIDTH/2, HEIGHT-2, 10, 4, 0, 0};
-    PLAYER2 player2 = {WIDTH/2, 1, 10, 4, 0, 0, 1};
+    MAPA mapa = {25, 80 , {0}, 186};
+    BOLA bola = {mapa.colunas/2, mapa.linhas-3, 1, -dificuldade};
+    PLAYER1 player1 = {mapa.colunas/2, mapa.linhas-2, 10, 4, 0, 0};
+    PLAYER2 player2 = {mapa.colunas/2, 1, 10, 4, 0, 0, 1};
     int i, j, ponto = 0, pontuacaoPlayer2 = 0, pontuacaoPlayer1 = 0;
     system("cls");
     printf("SCORE: %d________________________________________________________________________", pontuacaoPlayer2);
-    for(i=1; i<HEIGHT-1; i++){
-        for(j=0; j<WIDTH; j++){
+    for(i=1; i<mapa.linhas-1; i++){
+        for(j=0; j<mapa.colunas; j++){
             //if(i == 0 || i == HEIGHT) printf("X");
-            if(j == 0 || j == WIDTH-1) printf("X");
+            if(j == 0 || j == mapa.colunas-1) printf("X");
             else printf (" ");
         }
     }
@@ -171,9 +127,9 @@ void twoPlayer(int dificuldade) {
 
     while(!GetAsyncKeyState(VK_ESCAPE)) // enquanto a tecla ESC nao for pressionada
     {
-        movimentoPlayer1(&player1);
-        movimentoPlayer2(&player2, &bola);
-        ponto = movimentoBola(&bola, &player1, &player2);
+        movimentoPlayer1(&player1, &mapa);
+        movimentoPlayer2(&player2, &bola, &mapa);
+        ponto = movimentoBola(&bola, &player1, &player2, &mapa);
         player1.velX = 0;
         player2.velX = 0;
         if (ponto == 1) {
@@ -186,7 +142,7 @@ void twoPlayer(int dificuldade) {
             pontuacaoPlayer1++;
             setCursor(0, 0);
             printf("SCORE: %d________________________________________________________________________", pontuacaoPlayer2);
-            setCursor(0, HEIGHT-1);
+            setCursor(0, mapa.linhas-1);
             printf("SCORE: %d________________________________________________________________________", pontuacaoPlayer1);
             setCursor(0, 0);
             Sleep(1000);
@@ -201,7 +157,7 @@ void twoPlayer(int dificuldade) {
             pontuacaoPlayer2++;
             setCursor(0, 0);
             printf("SCORE: %d________________________________________________________________________", pontuacaoPlayer2);
-            setCursor(0, HEIGHT-1);
+            setCursor(0, mapa.linhas-1);
             printf("SCORE: %d________________________________________________________________________", pontuacaoPlayer1);
             setCursor(0, 0);
             Sleep(1000);

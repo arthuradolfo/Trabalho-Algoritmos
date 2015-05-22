@@ -1,5 +1,6 @@
 typedef struct mapa {
     int linhas;
     int colunas;
-    int mapa[linhas][colunas];
+    char borda;
+    int mapa[80][40];
 } MAPA;
