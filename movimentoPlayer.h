@@ -65,9 +65,9 @@ int movimentoPlayer2(PLAYER2 *player2, BOLA *bola, MAPA *mapa) {
             }
 
             setCursor(player2->posXPlayer2, player2->posYPlayer2); //altera a posicao do cursor paraa nova posica da bola
-            for (i = 0; i < player2->tamanho; i++) {
-                printf("="); //imprime a bola
-            }
+            strncpy(player, player2->raquete, player2->tamanho);
+            player[player2->tamanho] = '\0';
+            puts(player);
         }
         else {
             //Player 2
@@ -76,7 +76,7 @@ int movimentoPlayer2(PLAYER2 *player2, BOLA *bola, MAPA *mapa) {
             // verifica colisoes
 
             //movimenta a bola
-            if(player2->posXPlayer2+5 > bola->posX && player2->posXPlayer2 > 1) {
+            if(player2->posXPlayer2+5 > bola->posX[0] && player2->posXPlayer2 > 1) {
                 player2->posXPlayer2--;
                 for(i = 1; i < player2->dirX; i++) {
                     if(player2->posXPlayer2 > 1) {
@@ -85,7 +85,7 @@ int movimentoPlayer2(PLAYER2 *player2, BOLA *bola, MAPA *mapa) {
                 }
                 player2->velX = -1;
             }
-            if(player2->posXPlayer2+5 < bola->posX && player2->posXPlayer2 < mapa->colunas-(player2->tamanho+1)) {
+            if(player2->posXPlayer2+5 < bola->posX[0] && player2->posXPlayer2 < mapa->colunas-(player2->tamanho+1)) {
                 player2->posXPlayer2++;
                 for(i = 1; i < player2->dirX; i++) {
                     if(player2->posXPlayer2 < mapa->colunas-(player2->tamanho+1)) {

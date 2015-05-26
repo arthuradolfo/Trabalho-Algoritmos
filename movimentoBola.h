@@ -1,116 +1,96 @@
 int movimentoBola(BOLA *bola, PLAYER1 *player1, PLAYER2 *player2, MAPA *mapa);
-void colisaoBorda(BOLA *bola, MAPA *mapa);
-void colisaoPlayer(BOLA *bola, PLAYER1 *player1, PLAYER2 *player2, MAPA *mapa);
+void colisaoBorda(BOLA *bola, MAPA *mapa, int i);
+void colisaoPlayer(BOLA *bola, PLAYER1 *player1, PLAYER2 *player2, MAPA *mapa, int i);
 
 int movimentoBola(BOLA *bola, PLAYER1 *player1, PLAYER2 *player2, MAPA *mapa) {
-        int i;
-        //bola
-        setCursor(bola->posX, bola->posY); // altera a posicao do cursor para o da bola
-        printf(" "); // imprime um espaco sobre a bola
-        // verifica colisoes
-                //movimenta a bola
-        colisaoBorda(bola, mapa);
-        if(bola->posY < mapa->linhas) {
-                for(i = 0; i < abs(bola->dirY); i++) {
-                    if(bola->posY < mapa->linhas-1 && bola->posY > 0) {
-                        bola->posY+=bola->dirY/abs(bola->dirY);
-                    }
+        int i, j;
+        for (i = 0; i < bola->numBolas; i++) {
+            //bola
+            setCursor(bola->posX[i], bola->posY[i]); // altera a posicao do cursor para o da bola
+            printf(" "); // imprime um espaco sobre a bola
+            // verifica colisoes
+                    //movimenta a bola
+            for(j = 0; j < abs(bola->dirY[i]); j++) {
+                if(bola->posY[i] < mapa->linhas && bola->posY[i] > 0) {
+                    bola->posY[i]+=bola->dirY[i]/abs(bola->dirY[i]);
                 }
+            }
+            for(j = 0; j < abs(bola->dirX[i]); j++) {
+                if(bola->posX[i] <= mapa->colunas-2 && bola->posX[i] >= 2) {
+                    bola->posX[i]+=bola->dirX[i]/abs(bola->dirX[i]);
+                }
+            }
+            colisaoBorda(bola, mapa, i);
+            colisaoPlayer(bola, player1, player2, mapa, i);
+            setCursor(bola->posX[i], bola->posY[i]); //altera a posicao do cursor paraa nova posica da bola
+            printf("0"); //imprime a bola
+            if(bola->posY[i] < 2) {
+                bola->bolaFora = i;
+                return 1;
+            }
+            else if(bola->posY[i] > mapa->linhas-1) {
+                bola->bolaFora = i;
+                return 2;
+            }
         }
-        colisaoPlayer(bola, player1, player2, mapa);
-        setCursor(bola->posX, bola->posY); //altera a posicao do cursor paraa nova posica da bola
-        printf("0"); //imprime a bola
-        if(bola->posY < 1) {
-            return 1;
-        }
-        else if(bola->posY > mapa->linhas-2) {
-            return 2;
-        }
-        else {
-            return 0;
-        }
+        return 0;
 }
-void colisaoPlayer(BOLA *bola, PLAYER1 *player1, PLAYER2 *player2, MAPA *mapa) {
-    if(bola->posX+bola->dirX == 1 || bola->posX+bola->dirX == mapa->colunas-2) bola->dirX*=-1;
-        if(bola->posY >= player1->posYPlayer1-2) {
+void colisaoPlayer(BOLA *bola, PLAYER1 *player1, PLAYER2 *player2, MAPA *mapa, int i) {
+        if(bola->posY[i] >= player1->posYPlayer1-1) {
                 if (player1->velX == 0) {
-                    if(bola->posX >= player1->posXPlayer1+1 && bola->posX <= player1->posXPlayer1+(player1->tamanho-1)) {
-                        bola->dirY*=-1;
+                    if(bola->posX[i] >= player1->posXPlayer1+1 && bola->posX[i] <= player1->posXPlayer1+(player1->tamanho-1)) {
+                        bola->dirY[i]*=-1;
                     }
-                    else if(bola->posX == player1->posXPlayer1) {
-                        bola->dirY*=-1;
-                        bola->dirX=-abs(bola->dirX);
-                    } else if(bola->posX == player1->posXPlayer1+player1->tamanho) {
-                        bola->dirY*=-1;
-                        bola->dirX=abs(bola->dirX);
+                    else if(bola->posX[i] == player1->posXPlayer1) {
+                        bola->dirY[i]*=-1;
+                        bola->dirX[i]=-abs(bola->dirX[i]);
+                    } else if(bola->posX[i] == player1->posXPlayer1+player1->tamanho) {
+                        bola->dirY[i]*=-1;
+                        bola->dirX[i]=abs(bola->dirX[i]);
                     }
                 }
                 else {
-                    if(bola->posX >= player1->posXPlayer1 && bola->posX <= player1->posXPlayer1+player1->tamanho) {
+                    if(bola->posX[i] >= player1->posXPlayer1 && bola->posX[i] <= player1->posXPlayer1+player1->tamanho) {
                         if(player1->velX == 1) {
-                            bola->dirY*=-1;
-                            bola->dirX=abs(bola->dirX);
+                            bola->dirY[i]*=-1;
+                            bola->dirX[i]=abs(bola->dirX[i]);
                         }
                         else if(player1->velX == -1) {
-                            bola->dirY*=-1;
-                            bola->dirX=-abs(bola->dirX);
+                            bola->dirY[i]*=-1;
+                            bola->dirX[i]=-abs(bola->dirX[i]);
                         }
                     }
                 }
         }
 
-        if(bola->posY <= player2->posYPlayer2+2) {
+        if(bola->posY[i] <= player2->posYPlayer2+1) {
                 if (player2->velX == 0) {
-                    if(bola->posX >= player2->posXPlayer2+1 && bola->posX <= player2->posXPlayer2+(player2->tamanho-1)) {
-                        bola->dirY*=-1;
+                    if(bola->posX[i] >= player2->posXPlayer2+1 && bola->posX[i] <= player2->posXPlayer2+(player2->tamanho-1)) {
+                        bola->dirY[i]*=-1;
                     }
-                    else if(bola->posX == player2->posXPlayer2) {
-                        bola->dirY*=-1;
-                        bola->dirX=-abs(bola.dirX);
-                    } else if(bola->posX == player2->posXPlayer2+player2->tamanho) {
-                        bola->dirY*=-1;
-                        bola->dirX=abs(bola->dirX);
+                    else if(bola->posX[i] == player2->posXPlayer2) {
+                        bola->dirY[i]*=-1;
+                        bola->dirX[i]=-abs(bola->dirX[i]);
+                    } else if(bola->posX[i] == player2->posXPlayer2+player2->tamanho) {
+                        bola->dirY[i]*=-1;
+                        bola->dirX[i]=abs(bola->dirX[i]);
                     }
                 }
                 else {
-                    if(bola->posX >= player2->posXPlayer2 && bola->posX <= player2->posXPlayer2+player2->tamanho) {
+                    if(bola->posX[i] >= player2->posXPlayer2 && bola->posX[i] <= player2->posXPlayer2+player2->tamanho) {
                         if(player2->velX == 1) {
-                            bola->dirY*=-1;
-                            bola->dirX=abs(bola->dirX);
+                            bola->dirY[i]*=-1;
+                            bola->dirX[i]=abs(bola->dirX[i]);
                         }
                         else if(player2->velX == -1) {
-                            bola->dirY*=-1;
-                            bola->dirX=-abs(bola->dirX);
+                            bola->dirY[i]*=-1;
+                            bola->dirX[i]=-abs(bola->dirX[i]);
                         }
                     }
                 }
         }
 }
 
-void colisaoBorda(BOLA *bola, MAPA *mapa) {
-    int i;
-    if(bola->posX > 1) {
-        if(bola->dirX > 0) {
-            for(i = 0; i < abs(bola->dirX); i++) {
-                if(bola->posX < mapa->colunas-2) {
-                    bola->posX++;
-                }
-            }
-        }
-    }
-    if(bola->posX < mapa->colunas-1) {
-        if(bola->dirX < 0) {
-            for(i = 0; i < abs(bola->dirX); i++) {
-                if(bola->posX > 2) {
-                    bola->posX--;
-                }
-            }
-        }
-    }
-    if(bola->posX < 0) {
-        bola->posX = 2;
-    }
-    if(bola->posX > mapa->colunas-1) {
-        bola->posX = mapa->colunas-2;
-    }
+void colisaoBorda(BOLA *bola, MAPA *mapa, int i) {
+        if(bola->posX[i] <= 2 || bola->posX[i] >= mapa->colunas-3) bola->dirX[i]*=-1;
 }

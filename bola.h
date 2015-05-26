@@ -1,6 +1,8 @@
 typedef struct bola {
-    int posX;
-    int posY;
-    int dirX;
-    int dirY;
+    int posX[5];
+    int posY[5];
+    int dirX[5];
+    int dirY[5];
+    int numBolas;
+    int bolaFora;
 } BOLA;
