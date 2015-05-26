@@ -28,7 +28,7 @@ int movimentoPlayer1(PLAYER1 *player1, MAPA *mapa) {
                 }
                 player1->velX = 1;
         }
-
+        mudaCor(9);
         setCursor(player1->posXPlayer1, player1->posYPlayer1); //altera a posicao do cursor paraa nova posica da bola
         strncpy(player, player1->raquete, player1->tamanho);
         player[player1->tamanho] = '\0';
@@ -63,7 +63,7 @@ int movimentoPlayer2(PLAYER2 *player2, BOLA *bola, MAPA *mapa) {
                 }
                 player2->velX = 1;
             }
-
+            mudaCor(12);
             setCursor(player2->posXPlayer2, player2->posYPlayer2); //altera a posicao do cursor paraa nova posica da bola
             strncpy(player, player2->raquete, player2->tamanho);
             player[player2->tamanho] = '\0';
@@ -99,6 +99,7 @@ int movimentoPlayer2(PLAYER2 *player2, BOLA *bola, MAPA *mapa) {
             //for (i = 0; i < player2->tamanho; i++) {
             //    printf("="); //imprime a bola
             //}
+            mudaCor(12);
             strncpy(player, player2->raquete, player2->tamanho);
             player[player2->tamanho] = '\0';
             puts(player);

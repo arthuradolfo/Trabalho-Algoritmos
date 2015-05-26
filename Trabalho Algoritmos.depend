@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1432610963 source:c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho algoritmos\main.c
+1432667187 source:c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho algoritmos\main.c
 	<stdio.h>
 	<windows.h>
 	<string.h>
@@ -16,9 +16,9 @@
 
 1432089748 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho algoritmos\player2.h
 
-1432608129 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho algoritmos\movimentobola.h
+1432667634 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho algoritmos\movimentobola.h
 
-1432601733 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho algoritmos\movimentoplayer.h
+1432666654 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho algoritmos\movimentoplayer.h
 
 1432597648 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho algoritmos\animacoes.h
 
@@ -32,5 +32,5 @@
 
 1432175190 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho algoritmos\menu.h
 
-1432611159 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho algoritmos\mapa.h
+1432664938 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho algoritmos\mapa.h
 

@@ -1,6 +1,7 @@
 int movimentoBola(BOLA *bola, PLAYER1 *player1, PLAYER2 *player2, MAPA *mapa);
 void colisaoBorda(BOLA *bola, MAPA *mapa, int i);
 void colisaoPlayer(BOLA *bola, PLAYER1 *player1, PLAYER2 *player2, MAPA *mapa, int i);
+void colisaoObstaculo(BOLA *bola, MAPA *mapa, int i);
 
 int movimentoBola(BOLA *bola, PLAYER1 *player1, PLAYER2 *player2, MAPA *mapa) {
         int i, j;
@@ -20,8 +21,10 @@ int movimentoBola(BOLA *bola, PLAYER1 *player1, PLAYER2 *player2, MAPA *mapa) {
                     bola->posX[i]+=bola->dirX[i]/abs(bola->dirX[i]);
                 }
             }
+            colisaoObstaculo(bola, mapa, i);
             colisaoBorda(bola, mapa, i);
             colisaoPlayer(bola, player1, player2, mapa, i);
+            mudaCor(15);
             setCursor(bola->posX[i], bola->posY[i]); //altera a posicao do cursor paraa nova posica da bola
             printf("0"); //imprime a bola
             if(bola->posY[i] < 2) {
@@ -93,4 +96,11 @@ void colisaoPlayer(BOLA *bola, PLAYER1 *player1, PLAYER2 *player2, MAPA *mapa, i
 
 void colisaoBorda(BOLA *bola, MAPA *mapa, int i) {
         if(bola->posX[i] <= 2 || bola->posX[i] >= mapa->colunas-3) bola->dirX[i]*=-1;
+}
+
+void colisaoObstaculo(BOLA *bola, MAPA *mapa, int i) {
+    if(mapa->mapa[bola->posY[i]+1][bola->posX[i]+1] == 1) {
+        bola->dirX[i]*=-1;
+        bola->dirY[i]*=-1;
+    }
 }

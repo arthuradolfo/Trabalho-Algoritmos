@@ -15,9 +15,23 @@
 void onePlayer(int dificuldade);
 void twoPlayer(int dificuldade);
 
+void setCursor(int x, int y) {
+    COORD coordinate;
+    coordinate.X = x;
+    coordinate.Y = y;
+    HANDLE screen = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleCursorPosition(screen, coordinate);
+}
+
+void mudaCor(int color) {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, color);
+}
+
 int main(int argc, char *argv[]) {
     int opcao = 0;
-    //abertura();
+    abertura();
+    mudaCor(15);
     opcao = menu();
     switch(opcao) {
         case 1:
@@ -36,14 +50,6 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
-void setCursor(int x, int y) {
-    COORD coordinate;
-    coordinate.X = x;
-    coordinate.Y = y;
-    HANDLE screen = GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleCursorPosition(screen, coordinate);
-}
-
 void onePlayer(int dificuldade) {
     //MAPA mapa = {25, 80 , 186, {0}};
     MAPA mapa;
@@ -52,7 +58,6 @@ void onePlayer(int dificuldade) {
     PLAYER1 player1 = {mapa.colunas/2, mapa.linhas, 10, 4, 0, 0, {219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219}};
     PLAYER2 player2 = {mapa.colunas/2, 1, 10, 1, 0, 0, 0, {219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219}};
     int i, j, ponto = 0, ponto1 = 0, pontuacaoPlayer2 = 0, pontuacaoPlayer1 = 0;
-    printf("%d %d", mapa.linhas, mapa.colunas);
     system("cls");
     printf("SCORE: %3d______________________________________________________________________", pontuacaoPlayer2);
     for(i=0; i<mapa.linhas; i++){
@@ -60,18 +65,33 @@ void onePlayer(int dificuldade) {
             //if(i == 0 || i == HEIGHT) printf("X");
             //if(j == 0 || j == mapa.colunas-1) printf("%c", mapa.borda);
             //else printf (" ");
-            if(mapa.mapa[i][j] == 1) {
-                printf("%c", mapa.borda);
+            if(j == 0 || j  == mapa.colunas-1) {
+                mudaCor(15);
+                if(mapa.mapa[i][j] == 1) {
+                    printf("%c", mapa.borda);
+                }
+                else {
+                    mudaCor(15);
+                    printf (" ");
+                }
             }
             else {
-                printf (" ");
+                mudaCor(7);
+                if(mapa.mapa[i][j] == 1) {
+                    printf("%c", 219);
+                }
+                else {
+                    mudaCor(15);
+                    printf (" ");
+                }
             }
         }
         if(mapa.colunas < 80) {
             printf("\n");
         }
     }
-    //printf("SCORE: %3d______________________________________________________________________", pontuacaoPlayer1);
+    mudaCor(15);
+    printf("SCORE: %3d______________________________________________________________________", pontuacaoPlayer1);
     //desenhaMapa();
     setCursor(0,0);
 
@@ -90,6 +110,7 @@ void onePlayer(int dificuldade) {
             bola.dirY[bola.bolaFora] = dificuldade;
             pontuacaoPlayer1++;
             setCursor(0, 0);
+            mudaCor(15);
             printf("SCORE: %3d______________________________________________________________________", pontuacaoPlayer2);
             setCursor(0, mapa.linhas+1);
             printf("SCORE: %3d______________________________________________________________________", pontuacaoPlayer1);
@@ -104,6 +125,7 @@ void onePlayer(int dificuldade) {
             bola.dirY[bola.bolaFora] = -dificuldade;
             pontuacaoPlayer2++;
             setCursor(0, 0);
+            mudaCor(15);
             printf("SCORE: %3d______________________________________________________________________", pontuacaoPlayer2);
             setCursor(0, mapa.linhas+1);
             printf("SCORE: %3d______________________________________________________________________", pontuacaoPlayer1);
