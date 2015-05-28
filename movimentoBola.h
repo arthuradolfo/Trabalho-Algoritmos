@@ -26,7 +26,7 @@ int movimentoBola(BOLA *bola, PLAYER1 *player1, PLAYER2 *player2, MAPA *mapa) {
             colisaoPlayer(bola, player1, player2, mapa, i);
             mudaCor(15);
             setCursor(bola->posX[i], bola->posY[i]); //altera a posicao do cursor paraa nova posica da bola
-            printf("0"); //imprime a bola
+            printf("%c", bola->bola); //imprime a bola
             if(bola->posY[i] < 2) {
                 bola->bolaFora = i;
                 return 1;
@@ -99,8 +99,84 @@ void colisaoBorda(BOLA *bola, MAPA *mapa, int i) {
 }
 
 void colisaoObstaculo(BOLA *bola, MAPA *mapa, int i) {
-    if(mapa->mapa[bola->posY[i]+1][bola->posX[i]+1] == 1) {
-        bola->dirX[i]*=-1;
-        bola->dirY[i]*=-1;
+    if(bola->dirY[i] > 0) {
+        if(bola->dirX[i] > 0) {
+            if(mapa->mapa[bola->posY[i]-1][bola->posX[i]+1] == 1 && mapa->mapa[bola->posY[i]][bola->posX[i]] == 1 && mapa->mapa[bola->posY[i]][bola->posX[i]+1] == 1) {
+                bola->dirX[i]*=-1;
+                bola->dirY[i]*=-1;
+            }
+            //bola bate na base do obstaculo e volta em Y
+            else if(mapa->mapa[bola->posY[i]][bola->posX[i]] == 1) {
+                bola->dirY[i]*=-1;
+            }
+            //bola bate na lateral do obstaculo e volta em X
+            else if(mapa->mapa[bola->posY[i]-1][bola->posX[i]+1] == 1) {
+                bola->dirX[i]*=-1;
+            }
+            //bola bate na quina do obstaculo, volta em X e Y
+            else if(mapa->mapa[bola->posY[i]][bola->posX[i]+1] == 1) {
+                bola->dirX[i]*=-1;
+                bola->dirY[i]*=-1;
+            }
+        }
+        else if(bola->dirX[i] < 0) {
+            if (mapa->mapa[bola->posY[i]-1][bola->posX[i]-1] == 1 && mapa->mapa[bola->posY[i]][bola->posX[i]] == 1 && mapa->mapa[bola->posY[i]][bola->posX[i]-1] == 1) {
+                bola->dirX[i]*=-1;
+                bola->dirY[i]*=-1;
+            }
+            //bola bate na base do obstaculo e volta em Y
+            else if(mapa->mapa[bola->posY[i]][bola->posX[i]] == 1) {
+                bola->dirY[i]*=-1;
+            }
+            //bola bate na lateral do obstaculo e volta em X
+            else if(mapa->mapa[bola->posY[i]-1][bola->posX[i]-1] == 1) {
+                bola->dirX[i]*=-1;
+            }
+            //bola bate na quina do obstaculo, volta em X e Y
+            else if(mapa->mapa[bola->posY[i]][bola->posX[i]-1] == 1) {
+                bola->dirX[i]*=-1;
+                bola->dirY[i]*=-1;
+            }
+        }
+    }
+    else {
+        if(bola->dirX[i] > 0) {
+            if (mapa->mapa[bola->posY[i]-1][bola->posX[i]+1] == 1 && mapa->mapa[bola->posY[i]-1][bola->posX[i]] == 1 && mapa->mapa[bola->posY[i]][bola->posX[i]+1] == 1) {
+                bola->dirX[i]*=-1;
+                bola->dirY[i]*=-1;
+            }
+            //bola bate na base do obstaculo e volta em Y
+            else if(mapa->mapa[bola->posY[i]-2][bola->posX[i]] == 1) {
+                bola->dirY[i]*=-1;
+            }
+            //bola bate na lateral do obstaculo e volta em X
+            else if(mapa->mapa[bola->posY[i]-1][bola->posX[i]+1] == 1) {
+                bola->dirX[i]*=-1;
+            }
+            //bola bate na quina do obstaculo, volta em X e Y
+            else if(mapa->mapa[bola->posY[i]-2][bola->posX[i]+1] == 1) {
+                bola->dirX[i]*=-1;
+                bola->dirY[i]*=-1;
+            }
+        }
+        else if(bola->dirX[i] < 0) {
+            if (mapa->mapa[bola->posY[i]-1][bola->posX[i]-1] == 1 && mapa->mapa[bola->posY[i]-1][bola->posX[i]] == 1 && mapa->mapa[bola->posY[i]][bola->posX[i]-1] == 1) {
+                bola->dirX[i]*=-1;
+                bola->dirY[i]*=-1;
+            }
+            //bola bate na base do obstaculo e volta em Y
+            else if(mapa->mapa[bola->posY[i]-2][bola->posX[i]] == 1) {
+                bola->dirY[i]*=-1;
+            }
+            //bola bate na lateral do obstaculo e volta em X
+            else if(mapa->mapa[bola->posY[i]-1][bola->posX[i]-1] == 1) {
+                bola->dirX[i]*=-1;
+            }
+            //bola bate na quina do obstaculo, volta em X e Y
+            else if(mapa->mapa[bola->posY[i]-2][bola->posX[i]-1] == 1) {
+                bola->dirX[i]*=-1;
+                bola->dirY[i]*=-1;
+            }
+        }
     }
 }

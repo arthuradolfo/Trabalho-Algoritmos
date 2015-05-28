@@ -5,4 +5,5 @@ typedef struct bola {
     int dirY[5];
     int numBolas;
     int bolaFora;
+    char bola;
 } BOLA;
