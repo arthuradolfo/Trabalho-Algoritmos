@@ -55,8 +55,8 @@ void onePlayer(int dificuldade) {
     MAPA mapa;
     carregaMapaOnePlayer("mapa1.txt", &mapa);
     BOLA bola = {{mapa.colunas/2, 10, 30, 7, 7}, {mapa.linhas-1, 10, 20, 7, 7}, {1, 1, 1, 1, 1}, {-dificuldade, dificuldade, -dificuldade, dificuldade, dificuldade}, 1, 166};
-    PLAYER1 player1 = {mapa.colunas/2, mapa.linhas, 20, 2, 0, 0, {219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219}};
-    PLAYER2 player2 = {mapa.colunas/2, 1, 20, 1, 0, 0, 0, {219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219}};
+    PLAYER1 player1 = {mapa.colunas/2, mapa.linhas, 20, 2, 0, 0, {0, 0, 0}, {219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219}};
+    PLAYER2 player2 = {mapa.colunas/2, 1, 20, 1, 0, 0, 0,  {0, 0, 0}, {219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219}};
     int i, j, ponto = 0, ponto1 = 0, pontuacaoPlayer2 = 0, pontuacaoPlayer1 = 0;
     system("cls");
     printf("SCORE: %3d______________________________________________________________________", pontuacaoPlayer2);
@@ -142,8 +142,8 @@ void twoPlayer(int dificuldade) {
     MAPA mapa;
     carregaMapaOnePlayer("mapa1.txt", &mapa);
     BOLA bola = {{mapa.colunas/2, 10, 30, 7, 7}, {mapa.linhas-1, 10, 20, 7, 7}, {1, 1, 1, 1, 1}, {-dificuldade, dificuldade, -dificuldade, dificuldade, dificuldade}, 3, 219};
-    PLAYER1 player1 = {mapa.colunas/2, mapa.linhas, 10, 4, 0, 0, {219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219}};
-    PLAYER2 player2 = {mapa.colunas/2, 1, 10, 4, 0, 0, 1, {219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219}};
+    PLAYER1 player1 = {mapa.colunas/2, mapa.linhas, 10, 4, 0, 0,  {0, 0, 0}, {219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219}};
+    PLAYER2 player2 = {mapa.colunas/2, 1, 10, 4, 0, 0, 1, {0, 0, 0}, {219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219}};
     int i, j, ponto = 0, ponto1 = 0, pontuacaoPlayer2 = 0, pontuacaoPlayer1 = 0;
     system("cls");
     printf("SCORE: %3d______________________________________________________________________", pontuacaoPlayer2);

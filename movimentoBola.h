@@ -26,7 +26,7 @@ int movimentoBola(BOLA *bola, PLAYER1 *player1, PLAYER2 *player2, MAPA *mapa) {
             colisaoPlayer(bola, player1, player2, mapa, i);
             mudaCor(15);
             setCursor(bola->posX[i], bola->posY[i]); //altera a posicao do cursor paraa nova posica da bola
-            printf("%c", bola->bola); //imprime a bola
+            printf("0"); //imprime a bola
             if(bola->posY[i] < 2) {
                 bola->bolaFora = i;
                 return 1;
