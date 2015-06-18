@@ -32,21 +32,24 @@ int main(int argc, char *argv[]) {
     int opcao = 0;
     //abertura();
     mudaCor(15);
-    opcao = menu();
-    switch(opcao) {
-        case 1:
-            onePlayer(1);
-            break;
-        case 2:
-            twoPlayer(1);
-            break;
-        case 3:
-//            editMap();
-            break;
-        case 4:
- //           brutalMode();
-            break;
-    }
+    do {
+        system("cls");
+        opcao = menu();
+        switch(opcao) {
+            case 1:
+                onePlayer(1);
+                break;
+            case 2:
+                twoPlayer(1);
+                break;
+            case 3:
+    //            editMap();
+                break;
+            case 4:
+     //           brutalMode();
+                break;
+        }
+    } while(opcao != 5);
     return 0;
 }
 
@@ -54,12 +57,12 @@ void onePlayer(int dificuldade) {
     //MAPA mapa = {25, 80 , 186, {0}};
     MAPA mapa;
     carregaMapaOnePlayer("mapa1.txt", &mapa);
-    BOLA bola = {{mapa.colunas/2, 10, 30, 7, 7}, {mapa.linhas-1, 10, 20, 7, 7}, {1, 1, 1, 1, 1}, {-dificuldade, dificuldade, -dificuldade, dificuldade, dificuldade}, 1, 166};
+    BOLA bola = {{mapa.colunas/2, 10, 30, 7, 7}, {mapa.linhas-1, 10, 20, 7, 7}, {2, 1, 1, 1, 1}, {-dificuldade, dificuldade, -dificuldade, dificuldade, dificuldade}, 1, 166};
     PLAYER1 player1 = {mapa.colunas/2, mapa.linhas, 20, 2, 0, 0, {0, 0, 0}, {219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219}};
-    PLAYER2 player2 = {mapa.colunas/2, 1, 20, 1, 0, 0, 0,  {0, 0, 0}, {219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219}};
-    int i, j, ponto = 0, ponto1 = 0, pontuacaoPlayer2 = 0, pontuacaoPlayer1 = 0;
+    PLAYER2 player2 = {mapa.colunas/2, 1, 10, 1, 0, 0, 0,  {0, 0, 0}, {219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219}};
+    int i, j, ponto = 0, ponto1 = 0, pontuacaoPlayer2 = 0, pontuacaoPlayer1 = 0, nivel = 1;
     system("cls");
-    printf("SCORE: %3d______________________________________________________________________", pontuacaoPlayer2);
+    printf("SCORE: %3d_____________________________________________________________NIVEL: %2d", pontuacaoPlayer2, nivel);
     for(i=0; i<mapa.linhas; i++){
         for(j=0; j<mapa.colunas; j++){
             //if(i == 0 || i == HEIGHT) printf("X");
@@ -91,7 +94,7 @@ void onePlayer(int dificuldade) {
         }
     }
     mudaCor(15);
-    printf("SCORE: %3d______________________________________________________________________", pontuacaoPlayer1);
+    printf("SCORE: %3d_____________________________________________________________________", pontuacaoPlayer1);
     //desenhaMapa();
     setCursor(0,0);
 
@@ -111,11 +114,14 @@ void onePlayer(int dificuldade) {
             pontuacaoPlayer1++;
             setCursor(0, 0);
             mudaCor(15);
-            printf("SCORE: %3d______________________________________________________________________", pontuacaoPlayer2);
+            printf("SCORE: %3d_____________________________________________________________NIVEL: %2d", pontuacaoPlayer2, nivel);
             setCursor(0, mapa.linhas+1);
             printf("SCORE: %3d______________________________________________________________________", pontuacaoPlayer1);
             setCursor(0, 0);
-            Sleep(0);
+            Sleep(200);
+            if(pontuacaoPlayer1%5 == 0) {
+                nivel++;
+            }
         }
         else if (ponto == 2) {
             setCursor(bola.posX[bola.bolaFora], bola.posY[bola.bolaFora]);
@@ -126,11 +132,15 @@ void onePlayer(int dificuldade) {
             pontuacaoPlayer2++;
             setCursor(0, 0);
             mudaCor(15);
-            printf("SCORE: %3d______________________________________________________________________", pontuacaoPlayer2);
+            printf("SCORE: %3d_____________________________________________________________NIVEL: %2d", pontuacaoPlayer2, nivel);
             setCursor(0, mapa.linhas+1);
             printf("SCORE: %3d______________________________________________________________________", pontuacaoPlayer1);
             setCursor(0, 0);
-            //Sleep(200);
+            Sleep(200);
+            if(pontuacaoPlayer2%5 == 0) {
+                gameOver();
+                return;
+            }
         }
 
         Sleep(1000/30); //30 frames por segundo

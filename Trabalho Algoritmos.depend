@@ -75,3 +75,44 @@
 
 1433362692 c:\users\milhouse\desktop\trabalho-algoritmos\movimentoitem.h
 
+1434512293 source:c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\main.c
+	<stdio.h>
+	<windows.h>
+	<string.h>
+	<stdlib.h>
+	<math.h>
+	<time.h>
+	"animacoes.h"
+	"movimentos.h"
+	"menu.h"
+
+1434512204 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\animacoes.h
+
+1433399657 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\movimentos.h
+	"mapa.h"
+	"item.h"
+	"bola.h"
+	"player1.h"
+	"player2.h"
+	"movimentoItem.h"
+	"movimentoBola.h"
+	"movimentoPlayer.h"
+
+1433399657 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\mapa.h
+
+1433399657 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\item.h
+
+1433399657 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\bola.h
+
+1433399657 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\player1.h
+
+1433399657 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\player2.h
+
+1433399657 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\movimentoitem.h
+
+1434512912 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\movimentobola.h
+
+1433399657 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\movimentoplayer.h
+
+1434512112 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\menu.h
+
