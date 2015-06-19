@@ -5,6 +5,7 @@ typedef struct player2 {
     int dirX;
     int velX;
     int velY;
+    int nivelIA;
     int multiplayer;
     AUMENTATAM aumentatam;
     char raquete[30];

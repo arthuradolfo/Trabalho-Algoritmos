@@ -201,3 +201,47 @@
 
 1434671082 c:\users\arthur\downloads\trabalho-algoritmos\edicao.h
 
+1434744730 source:c:\users\aluno\desktop\trabalho-algoritmos\main.c
+	<stdio.h>
+	<windows.h>
+	<string.h>
+	<stdlib.h>
+	<math.h>
+	<time.h>
+	"animacoes.h"
+	"movimentos.h"
+	"menu.h"
+	"edicao.h"
+
+1434740687 c:\users\aluno\desktop\trabalho-algoritmos\animacoes.h
+
+1434737606 c:\users\aluno\desktop\trabalho-algoritmos\movimentos.h
+	"mapa.h"
+	"item.h"
+	"bola.h"
+	"player1.h"
+	"player2.h"
+	"movimentoItem.h"
+	"movimentoBola.h"
+	"movimentoPlayer.h"
+
+1434737606 c:\users\aluno\desktop\trabalho-algoritmos\mapa.h
+
+1434737606 c:\users\aluno\desktop\trabalho-algoritmos\item.h
+
+1434737606 c:\users\aluno\desktop\trabalho-algoritmos\bola.h
+
+1434737606 c:\users\aluno\desktop\trabalho-algoritmos\player1.h
+
+1434743887 c:\users\aluno\desktop\trabalho-algoritmos\player2.h
+
+1434737606 c:\users\aluno\desktop\trabalho-algoritmos\movimentoitem.h
+
+1434737606 c:\users\aluno\desktop\trabalho-algoritmos\movimentobola.h
+
+1434744828 c:\users\aluno\desktop\trabalho-algoritmos\movimentoplayer.h
+
+1434740971 c:\users\aluno\desktop\trabalho-algoritmos\menu.h
+
+1434740179 c:\users\aluno\desktop\trabalho-algoritmos\edicao.h
+

@@ -2,13 +2,13 @@ int pausaEd(char nome[], MAPA *mapaEd);
 int editarMapa(char nome[], MAPA* mapaEd);
 int abrirMapaEd(char from){
     system("cls");
-    fflush(stdin);
+    clearBuff();
     char nomeMapaEd[30];
     setCursor(0,0);
 
     printf("CARREGAR MAPA\n");
     printf("Insira o nome do mapa:\n");
-    fflush(stdin);
+    clearBuff();
     scanf("%s",nomeMapaEd);
     MAPA mapaEd;
     carregaMapaEdicao(nomeMapaEd, &mapaEd);
@@ -17,12 +17,12 @@ int abrirMapaEd(char from){
 }
 int newMapa(){
     system("cls");
-    fflush(stdin);
+    clearBuff();
     MAPA novoMapa;
     char nomeNovoMapa[30];
     printf("Defina um nome para o mapa");
     scanf("%s",nomeNovoMapa);
-    fflush(stdin);
+    clearBuff();
     printf("Defina a altura do mapa: \n");
     scanf("%d",&novoMapa.linhas);
     printf("Defina a largura do mapa: \n");
@@ -43,11 +43,11 @@ int newMapa(){
 }
 int salvarMapa(char nome[], MAPA* mapaEd){
     system("cls");
-    fflush(stdin);
+    clearBuff();
     char novoNome[30];
     strcpy(novoNome,nome);
     printf("Confirme ou troque o nome para o mapa! O nome atual eh %s\n",nome);
-    fflush(stdin);
+    clearBuff();
     scanf("%s",novoNome);
     FILE* arqMapa;
     int i,j;

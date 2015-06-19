@@ -31,13 +31,13 @@ int menu () {
             setCursor(posX, posY);
             printf("  ");
             posY++;
-            Sleep(100);
+            Sleep(300);
         }
         if (GetAsyncKeyState(VK_UP) && posY > 13) {
             setCursor(posX, posY);
             printf("  ");
             posY--;
-            Sleep(100);
+            Sleep(300);
 
         }
         Sleep(1000/30);

@@ -1,6 +1,10 @@
 void setCursor(int x, int y);
 void abertura();
 void desenhaLogo();
+void clearBuff(void)
+{
+  while ( getc(stdin) != '\n' );
+}
 
 void abertura() {
     int i, j, k = 0, acaba = 0, posX=WIDTH/2, posY=HEIGHT/2, dirX=1, dirY=1;

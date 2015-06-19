@@ -38,9 +38,10 @@ int main(int argc, char *argv[]) {
         fflush(stdin);
         GetAsyncKeyState(VK_RETURN);
         opcao = menu();
+        fflush(stdin);
         switch(opcao) {
             case 1:
-                onePlayer(3);
+                onePlayer(1);
                 break;
             case 2:
                 twoPlayer(1);
@@ -59,21 +60,21 @@ int editMap(){
     int opEd = menuEdicao();
 }
 void onePlayer(int dificuldade) {
-    GetAsyncKeyState(VK_RETURN);
+    //GetAsyncKeyState(VK_RETURN);
     //MAPA mapa = {25, 80 , 186, {0}};
     MAPA mapa;
-
     char qualMapa[30];
-    system("cls");
     fflush(stdin);
+    clearBuff();
+    system("cls");
     printf("Escolha o mapa:\n");
     scanf("%s",qualMapa);
-    fflush(stdin);
+    clearBuff();
     carregaMapaOnePlayer(qualMapa, &mapa);
-    BOLA bola = {{mapa.colunas/2, 10, 30, 7, 7}, {mapa.linhas-1, 10, 20, 7, 7}, {3, 1, 1, 1, 1}, {-dificuldade, dificuldade, -dificuldade, dificuldade, dificuldade}, 1, 166};
+    BOLA bola = {{mapa.colunas/2, 10, 30, 7, 7}, {mapa.linhas-1, 10, 20, 7, 7}, {1, 1, 1, 1, 1}, {-dificuldade, dificuldade, -dificuldade, dificuldade, dificuldade}, 1, 166};
 
     PLAYER1 player1 = {mapa.colunas/2, mapa.linhas, 20, 2, 0, 0, {0, 0, 0}, {219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219}};
-    PLAYER2 player2 = {mapa.colunas/2, 1, 10, 1, 0, 0, 0,  {0, 0, 0}, {219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219}};
+    PLAYER2 player2 = {mapa.colunas/2, 1, 10, 1, 0, 0, 11, 0, {0, 0, 0}, {219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219}};
     int i, j, ponto = 0, ponto1 = 0, pontuacaoPlayer2 = 0, pontuacaoPlayer1 = 0, nivel = 1;
     system("cls");
     printf("SCORE: %3d_____________________________________________________________NIVEL: %2d", pontuacaoPlayer2, nivel);
