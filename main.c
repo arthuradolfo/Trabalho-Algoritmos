@@ -11,6 +11,7 @@
 #include "animacoes.h"
 #include "movimentos.h"
 #include "menu.h"
+#include "edicao.h"
 
 void onePlayer(int dificuldade);
 void twoPlayer(int dificuldade);
@@ -34,16 +35,18 @@ int main(int argc, char *argv[]) {
     mudaCor(15);
     do {
         system("cls");
+        fflush(stdin);
+        GetAsyncKeyState(VK_RETURN);
         opcao = menu();
         switch(opcao) {
             case 1:
-                onePlayer(1);
+                onePlayer(3);
                 break;
             case 2:
                 twoPlayer(1);
                 break;
             case 3:
-    //            editMap();
+                editMap();
                 break;
             case 4:
      //           brutalMode();
@@ -52,12 +55,23 @@ int main(int argc, char *argv[]) {
     } while(opcao != 5);
     return 0;
 }
-
+int editMap(){
+    int opEd = menuEdicao();
+}
 void onePlayer(int dificuldade) {
+    GetAsyncKeyState(VK_RETURN);
     //MAPA mapa = {25, 80 , 186, {0}};
     MAPA mapa;
-    carregaMapaOnePlayer("mapa1.txt", &mapa);
-    BOLA bola = {{mapa.colunas/2, 10, 30, 7, 7}, {mapa.linhas-1, 10, 20, 7, 7}, {2, 1, 1, 1, 1}, {-dificuldade, dificuldade, -dificuldade, dificuldade, dificuldade}, 1, 166};
+
+    char qualMapa[30];
+    system("cls");
+    fflush(stdin);
+    printf("Escolha o mapa:\n");
+    scanf("%s",qualMapa);
+    fflush(stdin);
+    carregaMapaOnePlayer(qualMapa, &mapa);
+    BOLA bola = {{mapa.colunas/2, 10, 30, 7, 7}, {mapa.linhas-1, 10, 20, 7, 7}, {3, 1, 1, 1, 1}, {-dificuldade, dificuldade, -dificuldade, dificuldade, dificuldade}, 1, 166};
+
     PLAYER1 player1 = {mapa.colunas/2, mapa.linhas, 20, 2, 0, 0, {0, 0, 0}, {219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219}};
     PLAYER2 player2 = {mapa.colunas/2, 1, 10, 1, 0, 0, 0,  {0, 0, 0}, {219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219}};
     int i, j, ponto = 0, ponto1 = 0, pontuacaoPlayer2 = 0, pontuacaoPlayer1 = 0, nivel = 1;
@@ -143,14 +157,14 @@ void onePlayer(int dificuldade) {
             }
         }
 
-        Sleep(1000/30); //30 frames por segundo
+        Sleep(1000/20); //30 frames por segundo
     }
 }
 
 void twoPlayer(int dificuldade) {
     //MAPA mapa = {25, 80 , 186, {0}};
     MAPA mapa;
-    carregaMapaOnePlayer("mapa1.txt", &mapa);
+    carregaMapaOnePlayer("mapa1", &mapa);
     BOLA bola = {{mapa.colunas/2, 10, 30, 7, 7}, {mapa.linhas-1, 10, 20, 7, 7}, {1, 1, 1, 1, 1}, {-dificuldade, dificuldade, -dificuldade, dificuldade, dificuldade}, 3, 219};
     PLAYER1 player1 = {mapa.colunas/2, mapa.linhas, 10, 4, 0, 0,  {0, 0, 0}, {219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219}};
     PLAYER2 player2 = {mapa.colunas/2, 1, 10, 4, 0, 0, 1, {0, 0, 0}, {219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219}};

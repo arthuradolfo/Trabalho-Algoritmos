@@ -75,7 +75,10 @@
 
 1433362692 c:\users\milhouse\desktop\trabalho-algoritmos\movimentoitem.h
 
-1434512293 source:c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\main.c
+1433399657 D
+	"edicao.h"
+
+1434668030 source:c:\users\home\documents\trabalho-algoritmos\main.c
 	<stdio.h>
 	<windows.h>
 	<string.h>
@@ -85,10 +88,20 @@
 	"animacoes.h"
 	"movimentos.h"
 	"menu.h"
+	"edicao.h"
 
-1434512204 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\animacoes.h
+1434512293 source:c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\main.c
 
-1433399657 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\movimentos.h
+1434512112 gin/master
+	<stdio.h>
+	<windows.h>
+	<string.h>
+	<stdlib.h>
+	<math.h>
+	<time.h>
+	"animacoes.h"
+	"movimentos.h"
+	"menu.h"
 	"mapa.h"
 	"item.h"
 	"bola.h"
@@ -97,6 +110,34 @@
 	"movimentoItem.h"
 	"movimentoBola.h"
 	"movimentoPlayer.h"
+
+1434597624 c:\users\home\documents\trabalho-algoritmos\animacoes.h
+
+1434577056 c:\users\home\documents\trabalho-algoritmos\movimentos.h
+
+1434512204 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\animacoes.h
+
+1433399657 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\movimentos.h
+
+1434578002 c:\users\home\documents\trabalho-algoritmos\mapa.h
+
+1434577056 c:\users\home\documents\trabalho-algoritmos\item.h
+
+1434577056 c:\users\home\documents\trabalho-algoritmos\bola.h
+
+1434577056 c:\users\home\documents\trabalho-algoritmos\player1.h
+
+1434577056 c:\users\home\documents\trabalho-algoritmos\player2.h
+
+1434577056 c:\users\home\documents\trabalho-algoritmos\movimentoitem.h
+
+1434577056 c:\users\home\documents\trabalho-algoritmos\movimentobola.h
+
+1434577056 c:\users\home\documents\trabalho-algoritmos\movimentoplayer.h
+
+1434577056 c:\users\home\documents\trabalho-algoritmos\menu.h
+
+1434670383 c:\users\home\documents\trabalho-algoritmos\edicao.h
 
 1433399657 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\mapa.h
 
@@ -115,4 +156,48 @@
 1433399657 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\movimentoplayer.h
 
 1434512112 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\menu.h
+
+1434679600 source:c:\users\arthur\downloads\trabalho-algoritmos\main.c
+	<stdio.h>
+	<windows.h>
+	<string.h>
+	<stdlib.h>
+	<math.h>
+	<time.h>
+	"animacoes.h"
+	"movimentos.h"
+	"menu.h"
+	"edicao.h"
+
+1434597624 c:\users\arthur\downloads\trabalho-algoritmos\animacoes.h
+
+1434577056 c:\users\arthur\downloads\trabalho-algoritmos\movimentos.h
+	"mapa.h"
+	"item.h"
+	"bola.h"
+	"player1.h"
+	"player2.h"
+	"movimentoItem.h"
+	"movimentoBola.h"
+	"movimentoPlayer.h"
+
+1434668559 c:\users\arthur\downloads\trabalho-algoritmos\mapa.h
+
+1434577056 c:\users\arthur\downloads\trabalho-algoritmos\item.h
+
+1434577056 c:\users\arthur\downloads\trabalho-algoritmos\bola.h
+
+1434577056 c:\users\arthur\downloads\trabalho-algoritmos\player1.h
+
+1434577056 c:\users\arthur\downloads\trabalho-algoritmos\player2.h
+
+1434577056 c:\users\arthur\downloads\trabalho-algoritmos\movimentoitem.h
+
+1434680867 c:\users\arthur\downloads\trabalho-algoritmos\movimentobola.h
+
+1434577056 c:\users\arthur\downloads\trabalho-algoritmos\movimentoplayer.h
+
+1434577056 c:\users\arthur\downloads\trabalho-algoritmos\menu.h
+
+1434671082 c:\users\arthur\downloads\trabalho-algoritmos\edicao.h
 

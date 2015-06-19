@@ -14,15 +14,21 @@ int movimentoBola(BOLA *bola, PLAYER1 *player1, PLAYER2 *player2, MAPA *mapa) {
             for(j = 0; j < abs(bola->dirY[i]); j++) {
                 if(bola->posY[i] < mapa->linhas && bola->posY[i] > 0) {
                     bola->posY[i]+=bola->dirY[i]/abs(bola->dirY[i]);
+                    //colisaoBorda(bola, mapa, i);
+                    colisaoObstaculo(bola, mapa, i);
+                    colisaoPlayer(bola, player1, player2, mapa, i);
                 }
             }
             for(j = 0; j < abs(bola->dirX[i]); j++) {
-                if(bola->posX[i] <= mapa->colunas-2 && bola->posX[i] >= 2) {
+                if(bola->posX[i] <= mapa->colunas-2 && bola->posX[i] >= 1) {
                     bola->posX[i]+=bola->dirX[i]/abs(bola->dirX[i]);
+                    //colisaoBorda(bola, mapa, i);
+                    colisaoObstaculo(bola, mapa, i);
+                    colisaoPlayer(bola, player1, player2, mapa, i);
                 }
             }
             colisaoObstaculo(bola, mapa, i);
-            colisaoBorda(bola, mapa, i);
+//            colisaoBorda(bola, mapa, i);
             colisaoPlayer(bola, player1, player2, mapa, i);
             mudaCor(15);
             setCursor(bola->posX[i], bola->posY[i]); //altera a posicao do cursor paraa nova posica da bola
@@ -95,7 +101,7 @@ void colisaoPlayer(BOLA *bola, PLAYER1 *player1, PLAYER2 *player2, MAPA *mapa, i
 }
 
 void colisaoBorda(BOLA *bola, MAPA *mapa, int i) {
-        if(bola->posX[i] <= 2 || bola->posX[i] >= mapa->colunas-3) bola->dirX[i]*=-1;
+        if(bola->posX[i] <= 1 || bola->posX[i] >= mapa->colunas-1) bola->dirX[i]*=-1;
 }
 
 void colisaoObstaculo(BOLA *bola, MAPA *mapa, int i) {
