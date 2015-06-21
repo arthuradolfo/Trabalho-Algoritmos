@@ -36,6 +36,8 @@
 		</Unit>
 		<Unit filename="mapa.h" />
 		<Unit filename="menu.h" />
+		<Unit filename="nivel.h" />
+		<Unit filename="replay.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

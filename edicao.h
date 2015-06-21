@@ -73,33 +73,7 @@ int salvarMapa(char nome[], MAPA* mapaEd){
 int editarMapa(char nome[], MAPA* mapaEd){
     int i,j;
     printf("'ESC' = Pausar edicao ________'B' = Inserir ou excluir objeto___________________");
-    for(i=0; i<mapaEd->linhas; i++){
-        for(j=0; j<mapaEd->colunas; j++){
-            if(j == 0 || j  == mapaEd->colunas-1) {
-                mudaCor(15);
-                if(mapaEd->mapa[i][j] == 1) {
-                    printf("%c", mapaEd->borda);
-                }
-                else {
-                    mudaCor(15);
-                    printf (" ");
-                }
-            }
-            else {
-                mudaCor(7);
-                if(mapaEd->mapa[i][j] == 1) {
-                    printf("%c", 219);
-                }
-                else {
-                    mudaCor(15);
-                    printf (" ");
-                }
-            }
-        }
-        if(mapaEd->colunas < 80) {
-            printf("\n");
-        }
-    }
+    printaMapa(mapaEd);
     printf("________________________________________________________________________________");
     int posx = 1, posy = 2;
     setCursor(posx,posy);
@@ -112,12 +86,25 @@ int editarMapa(char nome[], MAPA* mapaEd){
             printf("%c",219);
         }
         if(GetAsyncKeyState(0x42)){// 0x42 é letra B
-             mapaEd->mapa[posy-1][posx] = !mapaEd->mapa[posy-1][posx];
+             //mapaEd->mapa[posy-1][posx] = !mapaEd->mapa[posy-1][posx];
+             mapaEd->mapa[posy-1][posx] = 1;
+        }
+        if(GetAsyncKeyState(0x4E)){// 0x42 é letra B
+             //mapaEd->mapa[posy-1][posx] = !mapaEd->mapa[posy-1][posx];
+             mapaEd->mapa[posy-1][posx] = 0;
         }
         if(GetAsyncKeyState(VK_UP) && posy-1 != 1) posy--;
         if(GetAsyncKeyState(VK_DOWN) && posy+1 != mapaEd->linhas + 1 -1) posy++;
         if(GetAsyncKeyState(VK_RIGHT) && posx+1 != mapaEd->colunas-1) posx++;
         if(GetAsyncKeyState(VK_LEFT) && posx-1 != 0) posx--;
+        if(GetAsyncKeyState(0x42)){// 0x42 é letra B
+             //mapaEd->mapa[posy-1][posx] = !mapaEd->mapa[posy-1][posx];
+             mapaEd->mapa[posy-1][posx] = 1;
+        }
+        if(GetAsyncKeyState(0x4E)){// 0x42 é letra B
+             //mapaEd->mapa[posy-1][posx] = !mapaEd->mapa[posy-1][posx];
+             mapaEd->mapa[posy-1][posx] = 0;
+        }
         setCursor(posx,posy);
         printf("O");
         Sleep(100);

@@ -12,35 +12,39 @@ int movimentoBola(BOLA *bola, PLAYER1 *player1, PLAYER2 *player2, MAPA *mapa) {
             // verifica colisoes
                     //movimenta a bola
             for(j = 0; j < abs(bola->dirY[i]); j++) {
+                                    setCursor(bola->posX[i], bola->posY[i]); // altera a posicao do cursor para o da bola
+                printf(" "); // imprime um espaco sobre a bola
                 if(bola->posY[i] < mapa->linhas && bola->posY[i] > 0) {
                     bola->posY[i]+=bola->dirY[i]/abs(bola->dirY[i]);
                     //colisaoBorda(bola, mapa, i);
-                    colisaoObstaculo(bola, mapa, i);
-                    colisaoPlayer(bola, player1, player2, mapa, i);
                 }
-            }
-            for(j = 0; j < abs(bola->dirX[i]); j++) {
+            //}
+            //for(j = 0; j < abs(bola->dirX[i]); j++) {
                 if(bola->posX[i] <= mapa->colunas-2 && bola->posX[i] >= 1) {
                     bola->posX[i]+=bola->dirX[i]/abs(bola->dirX[i]);
                     //colisaoBorda(bola, mapa, i);
-                    colisaoObstaculo(bola, mapa, i);
-                    colisaoPlayer(bola, player1, player2, mapa, i);
+                    //colisaoObstaculo(bola, mapa, i);
+                    //colisaoPlayer(bola, player1, player2, mapa, i);
                 }
+                colisaoObstaculo(bola, mapa, i);
+                colisaoPlayer(bola, player1, player2, mapa, i);
+                mudaCor(15);
+                setCursor(bola->posX[i], bola->posY[i]); //altera a posicao do cursor paraa nova posica da bola
+                printf("0"); //imprime a bola
+
             }
-            colisaoObstaculo(bola, mapa, i);
-//            colisaoBorda(bola, mapa, i);
-            colisaoPlayer(bola, player1, player2, mapa, i);
-            mudaCor(15);
-            setCursor(bola->posX[i], bola->posY[i]); //altera a posicao do cursor paraa nova posica da bola
-            printf("0"); //imprime a bola
+            //colisaoObstaculo(bola, mapa, i);
+//          colisaoBorda(bola, mapa, i);
+            //colisaoPlayer(bola, player1, player2, mapa, i);
             if(bola->posY[i] < 2) {
-                bola->bolaFora = i;
-                return 1;
-            }
-            else if(bola->posY[i] > mapa->linhas-1) {
-                bola->bolaFora = i;
-                return 2;
-            }
+                    bola->bolaFora = i;
+                    return 1;
+                }
+                else if(bola->posY[i] > mapa->linhas-1) {
+                    bola->bolaFora = i;
+                    return 2;
+                }
+
         }
         return 0;
 }

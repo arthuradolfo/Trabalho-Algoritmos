@@ -106,3 +106,46 @@ void gameOver() {
     }
     Sleep(500);
 }
+
+void printaScore(int pontuacaoPlayer1, int pontuacaoPlayer2, int nivel, int linhas) {
+    setCursor(0, 0);
+    mudaCor(15);
+    printf("SCORE: %3d_____________________________________________________________NIVEL: %2d", pontuacaoPlayer2, nivel);
+    setCursor(0, linhas+1);
+    printf("SCORE: %3d______________________________________________________________________", pontuacaoPlayer1);
+    setCursor(0, 0);
+}
+
+void printaMapa(MAPA *mapa) {
+    int i, j;
+    for(i=0; i<mapa->linhas; i++){
+        for(j=0; j<mapa->colunas; j++){
+            //if(i == 0 || i == HEIGHT) printf("X");
+            //if(j == 0 || j == mapa.colunas-1) printf("%c", mapa.borda);
+            //else printf (" ");
+            if(j == 0 || j  == mapa->colunas-1) {
+                mudaCor(15);
+                if(mapa->mapa[i][j] == 1) {
+                    printf("%c", mapa->borda);
+                }
+                else {
+                    mudaCor(15);
+                    printf (" ");
+                }
+            }
+            else {
+                mudaCor(7);
+                if(mapa->mapa[i][j] == 1) {
+                    printf("%c", 219);
+                }
+                else {
+                    mudaCor(15);
+                    printf (" ");
+                }
+            }
+        }
+        if(mapa->colunas < 80) {
+            printf("\n");
+        }
+    }
+}
