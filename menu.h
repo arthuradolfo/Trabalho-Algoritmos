@@ -1,4 +1,4 @@
-int menu () {
+int menu (highscore) {
     int i, j, posX = 50, posY = 13;
     char menuFundo[9][80] = {"                                   MENU                                ",
                                   "                      ________________________________                 ",
@@ -21,7 +21,8 @@ int menu () {
         printf("%s\n", menuFundo[i]);
         Sleep(150);
     }
-    for (i = 0; i < 5; i++) {
+    printf("                     HIGH SCORE: %4d                                  ", highscore);
+    for (i = 0; i < 4; i++) {
         printf("\n");
         Sleep(150);
     }

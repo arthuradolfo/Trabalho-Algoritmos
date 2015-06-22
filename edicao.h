@@ -75,6 +75,7 @@ int editarMapa(char nome[], MAPA* mapaEd){
     printf("'ESC' = Pausar edicao ________'B' = Inserir ou excluir objeto___________________");
     printaMapa(mapaEd);
     printf("________________________________________________________________________________");
+    setCursor(0, 0);
     int posx = 1, posy = 2;
     setCursor(posx,posy);
     while(!GetAsyncKeyState(VK_ESCAPE)){

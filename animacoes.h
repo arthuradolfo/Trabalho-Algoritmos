@@ -107,12 +107,12 @@ void gameOver() {
     Sleep(500);
 }
 
-void printaScore(int pontuacaoPlayer1, int pontuacaoPlayer2, int nivel, int linhas) {
+void printaScore(int pontuacaoPlayer1, int pontuacaoPlayer2, int nivel, int linhas, int highscore) {
     setCursor(0, 0);
     mudaCor(15);
     printf("SCORE: %3d_____________________________________________________________NIVEL: %2d", pontuacaoPlayer2, nivel);
     setCursor(0, linhas+1);
-    printf("SCORE: %3d______________________________________________________________________", pontuacaoPlayer1);
+    printf("SCORE: %3d________________________________________________________HIGH_SCORE:_%2d", pontuacaoPlayer1, highscore);
     setCursor(0, 0);
 }
 
