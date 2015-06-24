@@ -8,8 +8,7 @@ void colisaoObstaculo(BOLA *bola, MAPA *mapa, int i);
 int movimentoBola(BOLA *bola, PLAYER1 *player1, PLAYER2 *player2, PLAYER1 *player3, PLAYER2 *player4, MAPA *mapa, int brutal, int *colidiuPlayer1, int *colidiuPlayer2) {
         int i, j;
         for (i = 0; i < bola->numBolas; i++) {
-
-            colisaoBorda(bola, mapa, i);
+            //colisaoBorda(bola, mapa, i);
             setCursor(bola->posX[i], bola->posY[i]);
             printf(" ");
             if(brutal == 1) {
@@ -242,6 +241,7 @@ void colisaoObstaculo(BOLA *bola, MAPA *mapa, int i) {
                 bola->dirX[i]*=-1;
                 bola->dirY[i]*=-1;
             }
+            else if(bola->posX[i] <= 2 || bola->posX[i] >= mapa->colunas-1) bola->dirX[i]*=-1;
         }
         else if(bola->dirX[i] < 0) {
             if (mapa->mapa[bola->posY[i]-1][bola->posX[i]-1] == 1 && mapa->mapa[bola->posY[i]][bola->posX[i]] == 1 && mapa->mapa[bola->posY[i]][bola->posX[i]-1] == 1) {
@@ -261,6 +261,7 @@ void colisaoObstaculo(BOLA *bola, MAPA *mapa, int i) {
                 bola->dirX[i]*=-1;
                 bola->dirY[i]*=-1;
             }
+            else if(bola->posX[i] <= 2 || bola->posX[i] >= mapa->colunas-1) bola->dirX[i]*=-1;
         }
     }
     else {
@@ -282,6 +283,7 @@ void colisaoObstaculo(BOLA *bola, MAPA *mapa, int i) {
                 bola->dirX[i]*=-1;
                 bola->dirY[i]*=-1;
             }
+            else if(bola->posX[i] <= 2 || bola->posX[i] >= mapa->colunas-1) bola->dirX[i]*=-1;
         }
         else if(bola->dirX[i] < 0) {
             if (mapa->mapa[bola->posY[i]-1][bola->posX[i]-1] == 1 && mapa->mapa[bola->posY[i]-1][bola->posX[i]] == 1 && mapa->mapa[bola->posY[i]][bola->posX[i]-1] == 1) {
@@ -301,6 +303,7 @@ void colisaoObstaculo(BOLA *bola, MAPA *mapa, int i) {
                 bola->dirX[i]*=-1;
                 bola->dirY[i]*=-1;
             }
+            else if(bola->posX[i] <= 2 || bola->posX[i] >= mapa->colunas-1) bola->dirX[i]*=-1;
         }
     }
 }

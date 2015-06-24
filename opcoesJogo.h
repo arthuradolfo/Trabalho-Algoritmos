@@ -38,7 +38,7 @@ void onePlayer(int highscore, int replayConfirma) {
     fclose(arqNivel);
 
     //inicializacao das estruturas dos plays e da bola ja com as caracteristicas do nivel
-    BOLA bola = {{mapa.colunas/2, 13, 30, 7, 7}, {mapa.linhas-1, 13, 20, 7, 7}, {st_nivel.velBola, st_nivel.velBola, st_nivel.velBola, st_nivel.velBola, st_nivel.velBola}, {-st_nivel.velBola, -st_nivel.velBola, -st_nivel.velBola, -st_nivel.velBola, -st_nivel.velBola}, 1, 166};
+    BOLA bola = {{mapa.colunas/2, mapa.colunas/2, mapa.colunas/2, mapa.colunas/2, mapa.colunas/2}, {mapa.linhas-1, mapa.linhas-1, 1, mapa.linhas-1, 1}, {st_nivel.velBola, st_nivel.velBola, st_nivel.velBola, st_nivel.velBola, st_nivel.velBola}, {-st_nivel.velBola, -st_nivel.velBola, -st_nivel.velBola, -st_nivel.velBola, -st_nivel.velBola}, 1, 166};
     PLAYER1 player1 = {mapa.colunas/2, mapa.linhas, st_nivel.tamPlayer1, st_nivel.velPlayer1, st_nivel.velPlayer1, 0, 0, {0, 0, 0}, {219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219}};
     PLAYER2 player2 = {mapa.colunas/2, 1, st_nivel.tamPlayer2, st_nivel.velPlayer2, st_nivel.velPlayer2, 0, 0, st_nivel.IAPlayer2, 0, {0, 0, 0}, {219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219}};
 
@@ -224,7 +224,7 @@ void twoPlayer(int replayConfirma) {
         strcat(qualMapa, ".txt");
     }
     carregaMapaOnePlayer(qualMapa, &mapa);
-    BOLA bola = {{mapa.colunas/2, 10, 30, 7, 7}, {mapa.linhas-1, 10, 20, 7, 7}, {1, 1, 1, 1, 1}, {-1, 1, -1, 1, 1}, 3, 219};
+    BOLA bola = {{mapa.colunas/2, mapa.colunas/2, mapa.colunas/2, 7, 7}, {mapa.linhas-1, mapa.linhas-1, 1, mapa.linhas-1, mapa.linhas-1}, {1, 1, 1, 1, 1}, {-1, 1, -1, 1, 1}, 1, 219};
     PLAYER1 player1 = {mapa.colunas/2, mapa.linhas, 20, 4, 4, 0, 0,  {0, 0, 0}, {219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219}};
     PLAYER2 player2 = {mapa.colunas/2, 1, 20, 4, 4, 0, 0, 0, 1, {0, 0, 0}, {219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219, 219}};
     int i, j, ponto = 0, ponto1 = 0, pontuacaoPlayer2 = 0, pontuacaoPlayer1 = 0;
@@ -276,6 +276,12 @@ void twoPlayer(int replayConfirma) {
         //a cada ciclo principal do jogo salvamos as informacoes necessarias ao replay no arquivo replay
         if(replayConfirma == 1) {
                 salvaReplay(atoi(idMapa), &player1, &player2, 0, 0, &bola, pontuacaoPlayer1, pontuacaoPlayer2, -1, replay);
+        }
+        if((pontuacaoPlayer1 == 5 || pontuacaoPlayer2 == 5) && bola.numBolas < 2) {
+            bola.numBolas++;
+        }
+        if((pontuacaoPlayer1 == 15 || pontuacaoPlayer2 == 15) && bola.numBolas < 3) {
+            bola.numBolas++;
         }
         Sleep(1000/30); //30 frames por segundo
     }

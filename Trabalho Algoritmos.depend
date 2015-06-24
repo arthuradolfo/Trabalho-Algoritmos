@@ -34,20 +34,18 @@
 
 1432664938 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho algoritmos\mapa.h
 
-1433363274 source:c:\users\milhouse\desktop\trabalho-algoritmos\main.c
+1435178708 source:c:\users\milhouse\desktop\trabalho-algoritmos\main.c
 	<stdio.h>
 	<windows.h>
 	<string.h>
 	<stdlib.h>
 	<math.h>
 	<time.h>
-	"animacoes.h"
-	"movimentos.h"
-	"menu.h"
+	"arthomas.h"
 
-1433362692 c:\users\milhouse\desktop\trabalho-algoritmos\animacoes.h
+1435178708 c:\users\milhouse\desktop\trabalho-algoritmos\animacoes.h
 
-1433363018 c:\users\milhouse\desktop\trabalho-algoritmos\movimentos.h
+1435178708 c:\users\milhouse\desktop\trabalho-algoritmos\movimentos.h
 	"mapa.h"
 	"item.h"
 	"bola.h"
@@ -57,23 +55,23 @@
 	"movimentoBola.h"
 	"movimentoPlayer.h"
 
-1433362692 c:\users\milhouse\desktop\trabalho-algoritmos\mapa.h
+1435178708 c:\users\milhouse\desktop\trabalho-algoritmos\mapa.h
 
-1433362692 c:\users\milhouse\desktop\trabalho-algoritmos\bola.h
+1435178708 c:\users\milhouse\desktop\trabalho-algoritmos\bola.h
 
-1433363177 c:\users\milhouse\desktop\trabalho-algoritmos\item.h
+1435178708 c:\users\milhouse\desktop\trabalho-algoritmos\item.h
 
-1433363165 c:\users\milhouse\desktop\trabalho-algoritmos\player1.h
+1435178708 c:\users\milhouse\desktop\trabalho-algoritmos\player1.h
 
-1433363164 c:\users\milhouse\desktop\trabalho-algoritmos\player2.h
+1435178708 c:\users\milhouse\desktop\trabalho-algoritmos\player2.h
 
-1433363302 c:\users\milhouse\desktop\trabalho-algoritmos\movimentobola.h
+1435181353 c:\users\milhouse\desktop\trabalho-algoritmos\movimentobola.h
 
-1433362692 c:\users\milhouse\desktop\trabalho-algoritmos\movimentoplayer.h
+1435178708 c:\users\milhouse\desktop\trabalho-algoritmos\movimentoplayer.h
 
-1433362692 c:\users\milhouse\desktop\trabalho-algoritmos\menu.h
+1435178708 c:\users\milhouse\desktop\trabalho-algoritmos\menu.h
 
-1433362692 c:\users\milhouse\desktop\trabalho-algoritmos\movimentoitem.h
+1435178708 c:\users\milhouse\desktop\trabalho-algoritmos\movimentoitem.h
 
 1433399657 D
 	"edicao.h"
@@ -287,4 +285,21 @@
 	"animacoes.h"
 	"replay.h"
 	"opcoesJogo.h"
+
+1435178708 c:\users\milhouse\desktop\trabalho-algoritmos\arthomas.h
+	"movimentos.h"
+	"menu.h"
+	"edicao.h"
+	"nivel.h"
+	"animacoes.h"
+	"replay.h"
+	"opcoesJogo.h"
+
+1435180417 c:\users\milhouse\desktop\trabalho-algoritmos\edicao.h
+
+1435178708 c:\users\milhouse\desktop\trabalho-algoritmos\nivel.h
+
+1435178708 c:\users\milhouse\desktop\trabalho-algoritmos\replay.h
+
+1435179854 c:\users\milhouse\desktop\trabalho-algoritmos\opcoesjogo.h
 

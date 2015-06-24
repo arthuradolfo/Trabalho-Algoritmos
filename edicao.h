@@ -46,10 +46,10 @@ int salvarMapa(char nome[], MAPA* mapaEd){
     //clearBuff();
     char novoNome[30];
     strcpy(novoNome,nome);
-    printf("Confirme ou troque o nome para o mapa! O nome atual eh %s\n",nome);
+    //printf("Confirme ou troque o nome para o mapa! O nome atual eh %s\n",nome);
     //clearBuff();
-    fflush(stdin);
-    scanf("%s",novoNome);
+    //fflush(stdin);
+    //scanf("%s",novoNome);
     FILE* arqMapa;
     int i,j;
     if( (arqMapa = fopen(novoNome,"w+") ) ){
@@ -73,7 +73,7 @@ int salvarMapa(char nome[], MAPA* mapaEd){
 }
 int editarMapa(char nome[], MAPA* mapaEd){
     int i,j;
-    printf("'ESC' = Pausar edicao ________'B' = Inserir ou excluir objeto___________________");
+    printf("'ESC' = Pausar edicao _'B' = Inserir objeto_'N' = Deletar objeto _______________");
     printaMapa(mapaEd);
     printf("________________________________________________________________________________");
     setCursor(0, 0);

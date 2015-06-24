@@ -12,6 +12,9 @@
 //tamanho maximo que a raquete assume (nao usado no jogo)
 #define MAXRAQUETE 30
 
+//tempo randomico para item aparecer, usado no srand
+#define TEMPOITEM 50
+
 //numero maximo de bolas que podem existir no jogo (o maximo usado no jogo eh 3)
 #define MAXBOLAS 5
 
