@@ -5,10 +5,28 @@ typedef struct mapa {
     int mapa[40][81];
 } MAPA;
 
+void desenhaLogo();
+void printaMapa(MAPA *mapa);
+
+//funcao para mudar a cor do que sera escrito
+void mudaCor(int color) {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, color);
+}
+
+//funcao para posicionar o cursor
+void setCursor(int x, int y) {
+    COORD coordinate;
+    coordinate.X = x;
+    coordinate.Y = y;
+    HANDLE screen = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleCursorPosition(screen, coordinate);
+}
+
 void carregaMapaOnePlayer(char nomeMapa[], MAPA *mapa) {
     FILE *mapaFile;
     int i,j;
-    if(mapaFile = fopen(nomeMapa, "r")) {
+    if((mapaFile = fopen(nomeMapa, "r"))) {
         if(fscanf(mapaFile, "%d %d %d ", &mapa->linhas, &mapa->colunas, &mapa->borda) != 3){
             fseek(mapaFile,0,SEEK_SET);
             mapa->linhas = 40;
@@ -30,7 +48,7 @@ void carregaMapaOnePlayer(char nomeMapa[], MAPA *mapa) {
 void carregaMapaEdicao(char nomeMapa[], MAPA *mapa){
     FILE *mapaFile;
     int i,j;
-    if(mapaFile = fopen(nomeMapa, "r")) {
+    if((mapaFile = fopen(nomeMapa, "r"))) {
         if(fscanf(mapaFile, "%d %d %d ", &mapa->linhas, &mapa->colunas, &mapa->borda) != 3){
             fseek(mapaFile,0,SEEK_SET);
             mapa->linhas = 40;

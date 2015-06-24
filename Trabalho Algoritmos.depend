@@ -91,19 +91,14 @@
 	"edicao.h"
 	"nivel.h"
 
-1435007950 source:c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\main.c
+1435156932 source:c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\main.c
 	<stdio.h>
 	<windows.h>
 	<string.h>
 	<stdlib.h>
 	<math.h>
 	<time.h>
-	"movimentos.h"
-	"menu.h"
-	"edicao.h"
-	"nivel.h"
-	"animacoes.h"
-	"replay.h"
+	"arthomas.h"
 
 1434512112 gin/master
 	<stdio.h>
@@ -136,7 +131,7 @@
 	"movimentoBola.h"
 	"movimentoPlayer.h"
 
-1435003259 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\animacoes.h
+1435149819 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\animacoes.h
 
 1434756508 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\movimentos.h
 	"mapa.h"
@@ -168,23 +163,23 @@
 
 1434756508 c:\users\home\documents\trabalho-algoritmos\edicao.h
 
-1434756508 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\mapa.h
+1435150234 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\mapa.h
 
 1434756508 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\item.h
 
-1434756508 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\bola.h
+1435009029 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\bola.h
 
-1434860325 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\player1.h
+1435008800 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\player1.h
 
-1434860333 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\player2.h
+1435008688 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\player2.h
 
 1434756508 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\movimentoitem.h
 
-1435000931 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\movimentobola.h
+1435150019 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\movimentobola.h
 
-1435007909 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\movimentoplayer.h
+1435150060 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\movimentoplayer.h
 
-1435002041 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\menu.h
+1435156964 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\menu.h
 
 1434679600 source:c:\users\arthur\downloads\trabalho-algoritmos\main.c
 	<stdio.h>
@@ -276,9 +271,20 @@
 
 1434757299 c:\users\home\documents\trabalho-algoritmos\nivel.h
 
-1434859384 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\edicao.h
+1435119114 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\edicao.h
 
 1434757299 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\nivel.h
 
-1434899342 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\replay.h
+1435149267 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\replay.h
+
+1435157573 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\opcoesjogo.h
+
+1435150230 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\arthomas.h
+	"movimentos.h"
+	"menu.h"
+	"edicao.h"
+	"nivel.h"
+	"animacoes.h"
+	"replay.h"
+	"opcoesJogo.h"
 

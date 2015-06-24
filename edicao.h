@@ -43,11 +43,12 @@ int newMapa(){
 }
 int salvarMapa(char nome[], MAPA* mapaEd){
     system("cls");
-    clearBuff();
+    //clearBuff();
     char novoNome[30];
     strcpy(novoNome,nome);
     printf("Confirme ou troque o nome para o mapa! O nome atual eh %s\n",nome);
-    clearBuff();
+    //clearBuff();
+    fflush(stdin);
     scanf("%s",novoNome);
     FILE* arqMapa;
     int i,j;
