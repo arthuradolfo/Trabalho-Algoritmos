@@ -1,11 +1,14 @@
 int pausaEd(char nome[], MAPA *mapaEd);
 int editarMapa(char nome[], MAPA* mapaEd);
-int abrirMapaEd(char from){
+int salvarMapa(char nome[], MAPA* mapaEd);
+int menuEdicao();
+
+//carrega o mapa cujo o nome foi inserido pelo usuario e depois leva pra edicao
+int abrirMapaEd(){
     system("cls");
     clearBuff();
     char nomeMapaEd[30];
     setCursor(0,0);
-
     printf("CARREGAR MAPA\n");
     printf("Insira o nome do mapa:\n");
     clearBuff();
@@ -14,7 +17,10 @@ int abrirMapaEd(char from){
     carregaMapaEdicao(nomeMapaEd, &mapaEd);
     system("cls");
     editarMapa(nomeMapaEd, &mapaEd);
+    return 1;
 }
+
+//cria um mapa novo com os dados inseridos pelo usuario e leva para a edicao
 int newMapa(){
     system("cls");
     clearBuff();
@@ -30,26 +36,26 @@ int newMapa(){
     printf("Defina o tipo de borda: (se estiver em duvida, ponha 186)\n");
     scanf("%d",&novoMapa.borda);
     int i,j;
+
     for(i=0;i<novoMapa.linhas;i++){
         for(j=0;j<novoMapa.colunas;j++){
             if(j==0 || j==novoMapa.colunas - 1) novoMapa.mapa[i][j] = 1;
             else novoMapa.mapa[i][j] = 0;
         }
     }
+
     if(salvarMapa(nomeNovoMapa,&novoMapa)){
         system("cls");
         editarMapa(nomeNovoMapa,&novoMapa);
     }
+    return 1;
 }
+
+//salva o mapa
 int salvarMapa(char nome[], MAPA* mapaEd){
     system("cls");
-    //clearBuff();
     char novoNome[30];
     strcpy(novoNome,nome);
-    //printf("Confirme ou troque o nome para o mapa! O nome atual eh %s\n",nome);
-    //clearBuff();
-    //fflush(stdin);
-    //scanf("%s",novoNome);
     FILE* arqMapa;
     int i,j;
     if( (arqMapa = fopen(novoNome,"w+") ) ){
@@ -71,50 +77,60 @@ int salvarMapa(char nome[], MAPA* mapaEd){
     }
     return 1;
 }
+//edita o mapa
 int editarMapa(char nome[], MAPA* mapaEd){
-    int i,j;
     printf("'ESC' = Pausar edicao _'B' = Inserir objeto_'N' = Deletar objeto _______________");
     printaMapa(mapaEd);
     printf("________________________________________________________________________________");
+
     setCursor(0, 0);
     int posx = 1, posy = 2;
     setCursor(posx,posy);
     while(!GetAsyncKeyState(VK_ESCAPE)){
+        //se nao existir obstaculo no mapa carregado, apaga o lugar
         if(mapaEd->mapa[posy-1][posx] == 0){
             setCursor(posx,posy);
             printf(" ");
-        }else {
+        }else {//se existir, escreve o bloco
             setCursor(posx,posy);
             printf("%c",219);
         }
+
+        //se clicar B poem um obstaculo
         if(GetAsyncKeyState(0x42)){// 0x42 é letra B
-             //mapaEd->mapa[posy-1][posx] = !mapaEd->mapa[posy-1][posx];
              mapaEd->mapa[posy-1][posx] = 1;
         }
-        if(GetAsyncKeyState(0x4E)){// 0x42 é letra B
-             //mapaEd->mapa[posy-1][posx] = !mapaEd->mapa[posy-1][posx];
+
+        //se clicar N, tira o obstaculo
+        if(GetAsyncKeyState(0x4E)){// 0x42 é letra N
              mapaEd->mapa[posy-1][posx] = 0;
         }
+
+        //mexe o posicionador de blocos
         if(GetAsyncKeyState(VK_UP) && posy-1 != 1) posy--;
         if(GetAsyncKeyState(VK_DOWN) && posy+1 != mapaEd->linhas + 1 -1) posy++;
         if(GetAsyncKeyState(VK_RIGHT) && posx+1 != mapaEd->colunas-1) posx++;
         if(GetAsyncKeyState(VK_LEFT) && posx-1 != 0) posx--;
+
+        //se clicar B poem um obstaculo
         if(GetAsyncKeyState(0x42)){// 0x42 é letra B
-             //mapaEd->mapa[posy-1][posx] = !mapaEd->mapa[posy-1][posx];
              mapaEd->mapa[posy-1][posx] = 1;
         }
-        if(GetAsyncKeyState(0x4E)){// 0x42 é letra B
-             //mapaEd->mapa[posy-1][posx] = !mapaEd->mapa[posy-1][posx];
+        //se clicar N tira um obstaculo
+        if(GetAsyncKeyState(0x4E)){// 0x42 é letra N
              mapaEd->mapa[posy-1][posx] = 0;
         }
+
         setCursor(posx,posy);
         printf("O");
         Sleep(100);
     }
     system("cls");
     pausaEd(nome, mapaEd);
+    return 1;
 }
 
+//pausa durante a edicao de mapa
 int pausaEd(char nome[], MAPA *mapaEd){
     char menuPausaEdicao[7][80] = { "                                   EDITAR                              ",
                               "                      ________________________________                 ",
@@ -166,6 +182,8 @@ int pausaEd(char nome[], MAPA *mapaEd){
     }
     return 1;
 }
+
+//menu principal da edicao
 int menuEdicao(){
     system("cls");
     char menuEdicaoPrincipal[7][80] = { "                                   EDITAR                              ",
@@ -203,15 +221,18 @@ int menuEdicao(){
     switch(posYed){
         case 1:
             abrirMapaEd('c');
+            return 1;
             break;
 
         case 2:
             newMapa();
+            return 1;
             break;
 
         case 3:
             return 1;
             break;
     }
+    return 1;
 }
 

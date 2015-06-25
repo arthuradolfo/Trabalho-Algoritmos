@@ -6,6 +6,5 @@ typedef struct player1 {
     int dirY;// quantos espacos de caracter deve andar em y a cada vez que se movimenta em y (brutal mode)
     int velX; // sentido do movimento em X
     int velY; // sentido do movimento em Y (apenas brutal mode)
-    AUMENTATAM aumentaTam;
     char raquete[MAXRAQUETE]; // caracteres que compoem a raquete do player 1
 } PLAYER1;

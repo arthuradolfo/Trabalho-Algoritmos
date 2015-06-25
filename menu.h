@@ -1,3 +1,7 @@
+//menus do jogo
+//todos funcionam de forma semelhante
+//o usuario pode ir para cima e para baixo, e, no fim, a funcao retorna o indice da opcao escolhida
+
 int menu (highscore) {
     int i, cheat = 0, posX = 50, posY = 13;
     char menuFundo[10][80] = {"                                   MENU                                ",

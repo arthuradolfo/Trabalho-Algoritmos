@@ -1,8 +1,6 @@
 #include "mapa.h"
-#include "item.h"
 #include "bola.h"
 #include "player1.h"
 #include "player2.h"
-#include "movimentoItem.h"
 #include "movimentoBola.h"
 #include "movimentoPlayer.h"

@@ -9,6 +9,6 @@ typedef struct player2 {
     int velY; // sentido em y para o qual ele segue (apenas brutal mode)
     int nivelIA; //nivel da inteligencia aritificl para caso seja o computador jogando
     int multiplayer; // igual a 1 se o player 2 for humano e igual a 0 se player 2 for o comptuador
-    AUMENTATAM aumentatam; //item (nao implementado)
+    int qualBola;
     char raquete[MAXRAQUETE]; // caracteres que compoem a raquete (tem o tamanho maximo que a raquete pode assumir em um jogo hipotetico)
 } PLAYER2;

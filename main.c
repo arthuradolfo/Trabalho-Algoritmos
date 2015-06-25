@@ -5,6 +5,12 @@
 #include <math.h>
 #include <time.h>
 
+//significa que é replay de um jogo brutal mode
+#define REPBRUTAL -2
+
+//significa que é replayer de um jogo two player
+#define REP2PLAYER -1
+
 //precisa para a abertura
 #define WIDTH 80
 #define HEIGHT 25
@@ -25,6 +31,11 @@
 #define MAXNAME 30
 
 #include "arthomas.h"
+
+void editMap(){
+    menuEdicao();
+}
+
 //funcao principal do jogo
 int main(int argc, char *argv[]) {
     FILE *high;
@@ -40,7 +51,7 @@ int main(int argc, char *argv[]) {
 
         //tenta abrir o record.bin
         //se nao conseguir cria um novo e poem highscore=0 nele
-        if(high = fopen("record.bin", "r+b")) {
+        if((high = fopen("record.bin", "r+b"))) {
             fread(&highscore, sizeof(int), 1, high);
             fclose(high);
         }
@@ -58,19 +69,26 @@ int main(int argc, char *argv[]) {
         fflush(stdin);
         switch(opcao) {
             case 1:
+                //vai ter replay?
                 replay = menuReplay();
+
                 onePlayer(highscore, replay);
                 break;
             case 2:
+                //vai ter replay?
                 replay = menuReplay();
+
                 twoPlayer(replay);
                 break;
             case 3:
                 editMap();
                 break;
             case 4:
+                //numero de jogadores
                 jogadores = menuBrutal();
+                //vai ter replay?
                 replay = menuReplay();
+
                 brutalMode(jogadores, replay);
                 break;
             case 5:
@@ -79,8 +97,4 @@ int main(int argc, char *argv[]) {
         }
     } while(opcao != 6);
     return 0;
-}
-
-int editMap(){
-    int opEd = menuEdicao();
 }
