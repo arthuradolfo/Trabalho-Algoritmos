@@ -10,7 +10,7 @@ int menu (highscore) {
                                   "                     |   1 player:                    |                ",
                                   "                     |   2 player:                    |                ",
                                   "                     |   Criar mapa:                  |                ",
-                                  "                     |   Modo Extreme:                |                ",
+                                  "                     |   Modo Brutal:                |                ",
                                   "                     |   Replay do ultimo jogo:       |                ",
                                   "                     |   Sair:                        |                ",
                                   "                     |________________________________|                "
@@ -38,27 +38,25 @@ int menu (highscore) {
             setCursor(posX, posY);
             printf("  ");
             posY++;
-            cheat++;
             Sleep(300);
         }
         if (GetAsyncKeyState(VK_UP) && posY > 13) {
             setCursor(posX, posY);
             printf("  ");
             posY--;
-            cheat*=2;
             Sleep(300);
 
         }
         if (GetAsyncKeyState(VK_LEFT)) {
-            cheat+=3;
+            cheat+=3;// eater egg
             Sleep(300);
         }
 
         if (GetAsyncKeyState(VK_RIGHT)) {
-            cheat+=7;
+            cheat+=7;// eater egg
             Sleep(300);
         }
-        if(cheat == 29) {
+        if(cheat == 13) {// eater egg
             MAPA mapa;
             carregaMapaOnePlayer("memapa", &mapa);
             setCursor(0, 0);
@@ -67,7 +65,7 @@ int menu (highscore) {
             Sleep(2000);
             return 6;
         }
-        if(cheat == 16) {
+        if(cheat == 17) { // eater egg
             MAPA mapa;
             carregaMapaOnePlayer("memapa1", &mapa);
             setCursor(0, 0);

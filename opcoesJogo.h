@@ -24,7 +24,7 @@ void onePlayer(int highscore, int replayConfirma) {
     char qualMapa[30] = "maps";
     char idMapa[5];
     srand(time(NULL));
-    itoa(rand()%5, idMapa, 10);
+    itoa(rand()%7, idMapa, 10);
     strcat(qualMapa, idMapa);
     strcat(qualMapa, ".txt");
     carregaMapaOnePlayer(qualMapa, &mapa);

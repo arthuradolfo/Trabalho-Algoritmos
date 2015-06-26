@@ -89,7 +89,7 @@
 	"edicao.h"
 	"nivel.h"
 
-1435203950 source:c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\main.c
+1435208023 source:c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\main.c
 	<stdio.h>
 	<windows.h>
 	<string.h>
@@ -175,7 +175,7 @@
 
 1435205970 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\movimentoplayer.h
 
-1435189014 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\menu.h
+1435208196 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\menu.h
 
 1434679600 source:c:\users\arthur\downloads\trabalho-algoritmos\main.c
 	<stdio.h>
@@ -273,7 +273,7 @@
 
 1435206085 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\replay.h
 
-1435206142 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\opcoesjogo.h
+1435208542 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\opcoesjogo.h
 
 1435203825 c:\users\arthur\desktop\arthur\projetos c++\trabalho algoritmos\trabalho-algoritmos\arthomas.h
 	"movimentos.h"

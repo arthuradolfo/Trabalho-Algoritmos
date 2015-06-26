@@ -43,7 +43,7 @@ int main(int argc, char *argv[]) {
     int jogadores;
     int replay = 0;
     int opcao = 0;
-    //abertura();
+    abertura();
     mudaCor(15);
 
     do {
